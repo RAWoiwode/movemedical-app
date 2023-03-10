@@ -1,0 +1,14 @@
+.appointments {
+  background-color: lightgray;
+  border-radius: 11px;
+  margin: 1rem auto;
+  max-width: 95%;
+  padding: 1rem;
+  width: 50rem;
+}
+
+.appointments h1 {
+  flex: 1;
+  margin: 1rem auto;
+  text-align: center;
+}

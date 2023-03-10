@@ -1,7 +1,9 @@
+import "./Appointment.css";
+
 const Appointment = (props) => {
   return (
     <li>
-      <div>
+      <div className="appointment">
         <h2>
           {props.date.toLocaleString("en-US", {
             month: "2-digit",
