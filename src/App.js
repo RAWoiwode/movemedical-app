@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Appointments from "./components/Appointments/Appointments";
+
+const DUMMY_APPOINTMENTS = [
+  {
+    id: "1",
+    date: new Date(2023, 3, 10),
+    time: "2:30PM",
+    location: "San Diego",
+    description: "an appointment",
+  },
+  {
+    id: "2",
+    date: new Date(2023, 4, 1),
+    time: "10:30AM",
+    location: "Seatle",
+    description: "Visit Starbucks",
+  },
+  {
+    id: "3",
+    date: new Date(2023, 6, 18),
+    time: "4:45PM",
+    location: "London",
+    description: "See Big Ben",
+  },
+  {
+    id: "4",
+    date: new Date(2023, 3, 20),
+    time: "7:30AM",
+    location: "Orlando",
+    description: "Beach time",
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Appointments appointmentList={DUMMY_APPOINTMENTS} />
     </div>
   );
 }
