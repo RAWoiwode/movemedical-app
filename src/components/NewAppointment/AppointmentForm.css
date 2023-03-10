@@ -1,0 +1,13 @@
+.new-appointment__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.new-appointment__inputs label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}

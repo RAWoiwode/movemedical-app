@@ -1,0 +1,8 @@
+.new-appointment {
+  background-color: mistyrose;
+  border-radius: 11px;
+  margin: 1rem auto;
+  max-width: 70%;
+  padding: 1rem;
+  text-align: center;
+}

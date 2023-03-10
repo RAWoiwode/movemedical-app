@@ -1,5 +1,6 @@
 import "./App.css";
 import Appointments from "./components/Appointments/Appointments";
+import NewAppointment from "./components/NewAppointment/NewAppointment";
 
 const DUMMY_APPOINTMENTS = [
   {
@@ -36,6 +37,7 @@ function App() {
   return (
     <div>
       <Appointments appointmentList={DUMMY_APPOINTMENTS} />
+      <NewAppointment />
     </div>
   );
 }
