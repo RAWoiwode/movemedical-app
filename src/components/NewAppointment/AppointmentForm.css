@@ -6,8 +6,34 @@
   text-align: left;
 }
 
-.new-appointment__inputs label {
+.new-appointment__input label {
   display: block;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
+}
+
+.new-appointment__input input {
+  border-radius: 8px;
+  border-width: 1px;
+  font: inherit;
+  margin-right: 0.25rem;
+  max-width: 100%;
+  padding: 0.5rem;
+  width: 12rem;
+}
+
+#locations {
+  border-radius: 8px;
+  font: inherit;
+  max-width: 100%;
+  padding: 0.5rem;
+  width: 13rem;
+}
+
+.new-appointment__input textarea {
+  border-radius: 8px;
+  font: inherit;
+  padding: 0.5rem;
+  width: 32rem;
+  resize: none;
 }

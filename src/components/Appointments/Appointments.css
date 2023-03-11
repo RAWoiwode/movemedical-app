@@ -12,3 +12,8 @@
   margin: 1rem auto;
   text-align: center;
 }
+
+.appointments ul {
+  list-style: none;
+  padding: 0;
+}

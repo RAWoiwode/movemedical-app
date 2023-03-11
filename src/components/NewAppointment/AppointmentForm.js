@@ -43,7 +43,7 @@ const AppointmentForm = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <div className="new-appointment__inputs">
-        <div>
+        <div className="new-appointment__input">
           <label>DATE & TIME</label>
           <input
             min={minDate}
@@ -51,8 +51,6 @@ const AppointmentForm = (props) => {
             required
             type="datetime-local"
           />
-        </div>
-        <div>
           <label>LOCATION</label>
           <select id="locations" onChange={locationChangeHandler} required>
             <option value="">Please select a city</option>
@@ -63,7 +61,8 @@ const AppointmentForm = (props) => {
             <option value="Seattle">Seattle</option>
           </select>
         </div>
-        <div>
+        <div className="new-appointment__input"></div>
+        <div className="new-appointment__input">
           <label>DESCRIPTION</label>
           <textarea
             minLength={4}
@@ -71,15 +70,17 @@ const AppointmentForm = (props) => {
             onChange={descriptionChangeHandler}
             placeholder="Please enter a description"
             required
-            rows={4}
+            rows={5}
             spellCheck={true}
           />
         </div>
       </div>
-      <button type="button" onClick={props.onCancel}>
-        Cancel
-      </button>
-      <button type="submit">Add Appointment</button>
+      <div>
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
+        <button type="submit">Add Appointment</button>
+      </div>
     </form>
   );
 };
