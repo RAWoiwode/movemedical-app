@@ -1,8 +1,29 @@
 .appointment {
+  align-items: center;
   background-color: darkseagreen;
   border-radius: 11px;
   display: flex;
-  justify-content: space-around;
-  margin: 0.5rem;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+.appointment p {
+  margin: 0rem;
+  padding: 0.25rem;
+}
+
+.appointment p span {
+  font-size: 1.2rem;
+}
+
+.appointment__details {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin: 0 1rem;
   padding: 1rem;
 }

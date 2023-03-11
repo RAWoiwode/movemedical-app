@@ -13,9 +13,11 @@ const AppointmentList = (props) => {
       {props.items.map((item) => (
         <Appointment
           key={item.id}
+          id={item.id}
           dateTime={item.dateTime}
           location={item.location}
           description={item.description}
+          onDelete={props.onDelete}
         />
       ))}
     </ul>

@@ -2,13 +2,26 @@ import "./Appointment.css";
 import AppointmentDateTime from "./AppointmentDateTime";
 
 const Appointment = (props) => {
-  // TODO: Possibly extract a DateTime component to make this sleeker
   return (
-    <li key={props.id}>
+    <li>
       <div className="appointment">
-        <AppointmentDateTime dateTime={props.dateTime} />
-        <h4>{props.location}</h4>
-        <p>{props.description}</p>
+        <AppointmentDateTime dateTime={props.dateTime}>
+          <p>
+            in <span>{props.location}</span>
+          </p>
+        </AppointmentDateTime>
+        <div className="appointment__details">
+          <article>{props.description}</article>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete this item?"))
+              props.onDelete(props.id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </li>
   );

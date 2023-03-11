@@ -1,3 +1,5 @@
+import "./AppointmentDateTime.css";
+
 const AppointmentDateTime = (props) => {
   const month = props.dateTime.toLocaleString("en-US", { month: "long" });
   const day = props.dateTime.toLocaleString("en-US", { day: "2-digit" });
@@ -6,11 +8,13 @@ const AppointmentDateTime = (props) => {
     timeStyle: "short",
   });
   return (
-    <div>
-      <div>{month}</div>
-      <div>{day}</div>
-      <div>{year}</div>
-      <div>{time}</div>
+    <div className="appointment-date-time">
+      <div className="appointment-date-time__date">
+        {month} {day}, {year}
+      </div>
+      <div className="appointment-date-time__time">&#x40;{time}</div>
+      <hr />
+      {props.children}
     </div>
   );
 };

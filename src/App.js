@@ -21,13 +21,16 @@ const DUMMY_APPOINTMENTS = [
     id: getRandomArbitrary(),
     dateTime: new Date("2024-06-20T10:10:00"),
     location: "London",
-    description: "See Big Ben",
+    description:
+      "See Big Ben, drink some tea, eat some fish and chips, and Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+      "Quis commodo odio aenean sed. Vitae ultricies leo integer malesuada.",
   },
   {
     id: getRandomArbitrary(),
     dateTime: new Date("2023-07-25T13:15:00"),
     location: "Orlando",
-    description: "Beach time",
+    description:
+      "Beach time Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
 
@@ -42,9 +45,20 @@ function App() {
     });
   };
 
+  const deleteAppointmentHandler = (id) => {
+    console.log(id);
+    const newAppointments = appointments.filter(
+      (appointment) => appointment.id !== id
+    );
+    setAppointments(newAppointments);
+  };
+
   return (
     <div>
-      <Appointments appointmentList={appointments} />
+      <Appointments
+        appointmentList={appointments}
+        onDeleteAppointment={deleteAppointmentHandler}
+      />
       <NewAppointment onAddAppointment={addAppointmentHandler} />
     </div>
   );
