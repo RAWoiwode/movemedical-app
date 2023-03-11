@@ -18,6 +18,7 @@ const AppointmentList = (props) => {
           location={item.location}
           description={item.description}
           onDelete={props.onDelete}
+          onSave={props.onSave}
         />
       ))}
     </ul>

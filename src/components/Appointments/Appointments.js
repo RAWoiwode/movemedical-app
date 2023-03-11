@@ -8,6 +8,7 @@ const Appointments = (props) => {
       <AppointmentList
         items={props.appointmentList}
         onDelete={props.onDeleteAppointment}
+        onSave={props.onSaveAppointment}
       />
     </div>
   );

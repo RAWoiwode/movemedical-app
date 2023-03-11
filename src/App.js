@@ -14,7 +14,7 @@ const DUMMY_APPOINTMENTS = [
   {
     id: getRandomArbitrary(),
     dateTime: new Date("2025-04-01T12:00:00"),
-    location: "Seatle",
+    location: "Seattle",
     description: "Visit Starbucks",
   },
   {
@@ -34,8 +34,6 @@ const DUMMY_APPOINTMENTS = [
   },
 ];
 
-console.log(DUMMY_APPOINTMENTS);
-
 function App() {
   const [appointments, setAppointments] = useState(DUMMY_APPOINTMENTS);
 
@@ -45,8 +43,22 @@ function App() {
     });
   };
 
+  const saveAppointmentHandler = (appointment) => {
+    setAppointments((prevAppointments) => {
+      console.log("in App.js ", appointment);
+      const index = prevAppointments.findIndex(
+        (prevAppointment) => prevAppointment.id === appointment.id
+      );
+      console.log("Index - ", index);
+
+      if (index !== -1) {
+        prevAppointments[index] = appointment;
+      }
+      return [...prevAppointments];
+    });
+  };
+
   const deleteAppointmentHandler = (id) => {
-    console.log(id);
     const newAppointments = appointments.filter(
       (appointment) => appointment.id !== id
     );
@@ -58,6 +70,7 @@ function App() {
       <Appointments
         appointmentList={appointments}
         onDeleteAppointment={deleteAppointmentHandler}
+        onSaveAppointment={saveAppointmentHandler}
       />
       <NewAppointment onAddAppointment={addAppointmentHandler} />
     </div>
