@@ -1,31 +1,33 @@
+import { useState } from "react";
 import "./App.css";
 import Appointments from "./components/Appointments/Appointments";
 import NewAppointment from "./components/NewAppointment/NewAppointment";
+import getRandomArbitrary from "./utility/Utility";
 
 const DUMMY_APPOINTMENTS = [
   {
-    id: "1",
+    id: getRandomArbitrary(),
     date: new Date(2023, 3, 10),
     time: "2:30PM",
     location: "San Diego",
     description: "an appointment",
   },
   {
-    id: "2",
+    id: getRandomArbitrary(),
     date: new Date(2023, 4, 1),
     time: "10:30AM",
     location: "Seatle",
     description: "Visit Starbucks",
   },
   {
-    id: "3",
+    id: getRandomArbitrary(),
     date: new Date(2023, 6, 18),
     time: "4:45PM",
     location: "London",
     description: "See Big Ben",
   },
   {
-    id: "4",
+    id: getRandomArbitrary(),
     date: new Date(2023, 3, 20),
     time: "7:30AM",
     location: "Orlando",
@@ -33,11 +35,21 @@ const DUMMY_APPOINTMENTS = [
   },
 ];
 
+console.log(DUMMY_APPOINTMENTS);
+
 function App() {
+  const [appointments, setAppointments] = useState(DUMMY_APPOINTMENTS);
+
+  const addAppointmentHandler = (appointment) => {
+    setAppointments((prevAppointments) => {
+      return [...prevAppointments, appointment];
+    });
+  };
+
   return (
     <div>
-      <Appointments appointmentList={DUMMY_APPOINTMENTS} />
-      <NewAppointment />
+      <Appointments appointmentList={appointments} />
+      <NewAppointment onAddAppointment={addAppointmentHandler} />
     </div>
   );
 }

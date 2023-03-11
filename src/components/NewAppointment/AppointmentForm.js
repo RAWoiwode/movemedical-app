@@ -1,50 +1,44 @@
 import { useState } from "react";
 import "./AppointmentForm.css";
 
+// Testing this outside of component to see the functionality
+let minDate = new Date().toISOString();
+minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the z
+
 const AppointmentForm = (props) => {
   const [enteredDateTime, setEnteredDateTime] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
-  const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
 
   const dateTimeChangeHandler = (event) => {
-    setEnteredDateTime(event.target.value);
-    enableSubmit();
+    setEnteredDateTime(() => event.target.value);
   };
 
   const descriptionChangeHandler = (event) => {
     setEnteredDescription(event.target.value);
-    enableSubmit();
   };
 
   const locationChangeHandler = (event) => {
     setSelectedLocation(event.target.value);
-    enableSubmit();
   };
 
   const submitHandler = (event) => {
     event.preventDefault(); // Don't let form submit and reload page in a default way
 
     const appointmentData = {
-      dateTime: new Date(enteredDateTime),
+      dateTime: new Date(enteredDateTime.toString()),
       location: selectedLocation,
       description: enteredDescription,
     };
 
     console.log(appointmentData);
-  };
+    props.onSaveAppointmentData(appointmentData);
 
-  const enableSubmit = () => {
-    const locationValid = selectedLocation !== "";
-    const dateTimeValid = enteredDateTime !== "";
-    const descriptionValid = enteredDescription !== "";
-    setIsSubmitEnabled(locationValid && dateTimeValid && descriptionValid);
+    // Clear inputs
+    setEnteredDateTime("");
+    setSelectedLocation("");
+    setEnteredDescription("");
   };
-
-  // TODO: This is running on every change; need to figure out a better way
-  let minDate = new Date().toISOString();
-  console.log(minDate);
-  minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the z
 
   return (
     <form onSubmit={submitHandler}>
@@ -82,10 +76,10 @@ const AppointmentForm = (props) => {
           />
         </div>
       </div>
-      <button type="button">Cancel</button>
-      <button type="submit" disabled={!isSubmitEnabled}>
-        Add Appointment
+      <button type="button" onClick={props.onCancel}>
+        Cancel
       </button>
+      <button type="submit">Add Appointment</button>
     </form>
   );
 };

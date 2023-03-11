@@ -1,6 +1,10 @@
 import Appointment from "./Appointment";
 
 const AppointmentList = (props) => {
+  if (props.items.length === 0) {
+    return <h2>No upcoming appointments</h2>;
+  }
+
   return (
     <ul>
       {props.items.map((item) => (

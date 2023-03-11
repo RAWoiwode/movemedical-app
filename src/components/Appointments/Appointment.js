@@ -1,8 +1,9 @@
 import "./Appointment.css";
 
 const Appointment = (props) => {
+  // TODO: Possibly extract a DateTime component to make this sleeker
   return (
-    <li>
+    <li key={props.id}>
       <div className="appointment">
         <h2>
           {props.date.toLocaleString("en-US", {
