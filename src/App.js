@@ -7,29 +7,25 @@ import getRandomArbitrary from "./utility/Utility";
 const DUMMY_APPOINTMENTS = [
   {
     id: getRandomArbitrary(),
-    date: new Date(2023, 3, 10),
-    time: "2:30PM",
+    dateTime: new Date(2023, 3, 14, 8, 30),
     location: "San Diego",
     description: "an appointment",
   },
   {
     id: getRandomArbitrary(),
-    date: new Date(2023, 4, 1),
-    time: "10:30AM",
+    dateTime: new Date("2025-04-01T12:00:00"),
     location: "Seatle",
     description: "Visit Starbucks",
   },
   {
     id: getRandomArbitrary(),
-    date: new Date(2023, 6, 18),
-    time: "4:45PM",
+    dateTime: new Date("2024-06-20T10:10:00"),
     location: "London",
     description: "See Big Ben",
   },
   {
     id: getRandomArbitrary(),
-    date: new Date(2023, 3, 20),
-    time: "7:30AM",
+    dateTime: new Date("2023-07-25T13:15:00"),
     location: "Orlando",
     description: "Beach time",
   },

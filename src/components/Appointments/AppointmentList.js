@@ -5,13 +5,15 @@ const AppointmentList = (props) => {
     return <h2>No upcoming appointments</h2>;
   }
 
+  // Sorting appointments from closest dateTime to farthest dateTime
+  props.items.sort((a, b) => a.dateTime - b.dateTime);
+
   return (
     <ul>
       {props.items.map((item) => (
         <Appointment
           key={item.id}
-          date={item.date}
-          time={item.time}
+          dateTime={item.dateTime}
           location={item.location}
           description={item.description}
         />
