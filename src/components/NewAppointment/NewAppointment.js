@@ -1,7 +1,7 @@
 import "./NewAppointment.css";
 import AppointmentForm from "./AppointmentForm";
 import { useState } from "react";
-import getRandomArbitrary from "../../utility/Utility";
+import { getRandomArbitrary } from "../../utility/Utility";
 
 /**
  * Component to hold the form for creating a new appointment.

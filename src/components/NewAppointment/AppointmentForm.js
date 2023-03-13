@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { dateTimeInputDisplay } from "../../utility/Utility";
 import "./AppointmentForm.css";
 
 // Testing this outside of component to see the functionality
-let minDate = new Date().toISOString();
-minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the z
+let minDate = new Date();
+let minDateTimeValidation = dateTimeInputDisplay(minDate);
 
 /**
  * Component to display form for adding a new appointment.
@@ -72,7 +73,7 @@ const AppointmentForm = (props) => {
         <div className="new-appointment__input">
           <label>DATE & TIME</label>
           <input
-            min={minDate}
+            min={minDateTimeValidation}
             onChange={dateTimeChangeHandler}
             required
             type="datetime-local"

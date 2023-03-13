@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./AppointmentForm.css";
+import { dateTimeInputDisplay } from "../../utility/Utility";
 
 // Only want this to run once per component call
 let minDate = new Date().toISOString();
-minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the Z
+let minDateTimeValidation = dateTimeInputDisplay(minDate);
 
 /**
  * Component that handles the editing form for editing an appointment that is currently in the list.
@@ -12,16 +13,9 @@ minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through th
  * @returns Form to edit appointment data
  */
 const AppointmentEditForm = (props) => {
-  const [enteredDateTime, setEnteredDateTime] = useState(() => {
-    let temp = new Date(props.appointmentData.dateTime);
-    // Need to account for the Timezone offset or else the "wrong" time will be displayed in the input.
-    // I would like to implement this in a more global friendly way
-    let dateTimeDisplay = new Date(
-      temp.setHours(temp.getHours() - temp.getTimezoneOffset() / 60)
-    ).toISOString();
-    dateTimeDisplay = dateTimeDisplay.substring(0, dateTimeDisplay.length - 8);
-    return dateTimeDisplay;
-  });
+  const [enteredDateTime, setEnteredDateTime] = useState(
+    dateTimeInputDisplay(props.appointmentData.dateTime)
+  );
   const [selectedLocation, setSelectedLocation] = useState(
     props.appointmentData.location
   );
@@ -81,7 +75,7 @@ const AppointmentEditForm = (props) => {
         <div className="new-appointment__input">
           <label>DATE & TIME</label>
           <input
-            min={minDate}
+            min={minDateTimeValidation}
             onChange={dateTimeChangeHandler}
             required
             type="datetime-local"

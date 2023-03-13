@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Appointments from "./components/Appointments/Appointments";
 import NewAppointment from "./components/NewAppointment/NewAppointment";
-import getRandomArbitrary from "./utility/Utility";
+import { getRandomArbitrary } from "./utility/Utility";
 
 /* 
 DUMMY data to display on initial page load
