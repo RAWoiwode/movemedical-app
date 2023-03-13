@@ -8,21 +8,21 @@ npx create-react-app movemedical-app
 
 in the command line. Added `gh-pages` package to be able to create GitHub page.
 
-This README contains “Requirements”, “Assumptions”, and “Bugs”
+This README contains “Requirements” and “Assumptions”
 
 ## Requirements
 
 The main task is the following:
 
-Create a basic React web app that allows the user to schedule appointments. No external libraries should be used. The scheduler should be able to do the following:
+_Create a basic React web app that allows the user to schedule appointments. No external libraries should be used. The scheduler should be able to do the following:_
 
-- Create appointments with a date, time, location, and description.
-  - (A) Location should be a dropdown/select with the following options: San Diego, Portland, Seattle, London, and Orlando.
-- See a list of my appointments
-- Edit my appointments
-- Cancel (delete) an appointment
-- The user interface should be simple yet elegant (i.e., has some quick, light styling)
-- Generate a Github page where this scheduler can be used, and submit the Github page link along with the link to the Github repo.
+- _Create appointments with a date, time, location, and description._
+  - _(A) Location should be a dropdown/select with the following options: San Diego, Portland, Seattle, London, and Orlando._
+- _See a list of my appointments_
+- _Edit my appointments_
+- _Cancel (delete) an appointment_
+- _The user interface should be simple yet elegant (i.e., has some quick, light styling)_
+- _Generate a Github page where this scheduler can be used, and submit the Github page link along with the link to the Github repo._
 
 I acquired more requirements after asking some questions in an email and made everything into a list:
 
@@ -59,11 +59,3 @@ I made the following assumptions creating this app:
 - Limited description to 256 characters (average characters in 4-5 sentences)
 - All features available on one page
 - Display a message if there are no appointments
-
-## Bugs
-
-There was a bug I could not get to during the time allotted.
-
-The `datetime input` validation check uses the UTC time in ISO form. If you enter a datetime before the current datetime, the tooltip displays the correct date and time, it is just in UTC format so it appears like the time is a few hours ahead of the time that component was rendered.
-
-I believe a solution to it would be to look into editing the validation check value some how. If that is not possible, then creating a tooltip about that input and doing a manual validation check and displaying that tooltip accordingly.
