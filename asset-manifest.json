@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/movemedical-app/static/css/main.d385e23a.css",
-    "main.js": "/movemedical-app/static/js/main.db2d32ee.js",
+    "main.js": "/movemedical-app/static/js/main.3c887753.js",
     "static/js/787.c28d6f2f.chunk.js": "/movemedical-app/static/js/787.c28d6f2f.chunk.js",
     "index.html": "/movemedical-app/index.html",
     "main.d385e23a.css.map": "/movemedical-app/static/css/main.d385e23a.css.map",
-    "main.db2d32ee.js.map": "/movemedical-app/static/js/main.db2d32ee.js.map",
+    "main.3c887753.js.map": "/movemedical-app/static/js/main.3c887753.js.map",
     "787.c28d6f2f.chunk.js.map": "/movemedical-app/static/js/787.c28d6f2f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d385e23a.css",
-    "static/js/main.db2d32ee.js"
+    "static/js/main.3c887753.js"
   ]
 }
