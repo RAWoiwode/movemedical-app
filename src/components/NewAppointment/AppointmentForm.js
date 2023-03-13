@@ -95,7 +95,7 @@ const AppointmentForm = (props) => {
             minLength={4}
             maxLength={256}
             onChange={descriptionChangeHandler}
-            placeholder="Please enter a description"
+            placeholder="Please enter a description (Max 256 characters)"
             required
             rows={5}
             spellCheck={true}
