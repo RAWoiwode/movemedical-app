@@ -24,9 +24,9 @@ const AppointmentForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault(); // Don't let form submit and reload page in a default way
-
+    console.log(enteredDateTime);
     const appointmentData = {
-      dateTime: new Date(enteredDateTime.toString()),
+      dateTime: new Date(enteredDateTime),
       location: selectedLocation,
       description: enteredDescription,
     };

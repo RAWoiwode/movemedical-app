@@ -4,22 +4,23 @@ import Appointments from "./components/Appointments/Appointments";
 import NewAppointment from "./components/NewAppointment/NewAppointment";
 import getRandomArbitrary from "./utility/Utility";
 
+// Date.UTC(year, monthIndex, day, hour, minute)
 const DUMMY_APPOINTMENTS = [
   {
     id: getRandomArbitrary(),
-    dateTime: new Date(2023, 3, 14, 8, 30),
+    dateTime: new Date(2023, 3, 14, 14, 30).toISOString(),
     location: "San Diego",
     description: "an appointment",
   },
   {
     id: getRandomArbitrary(),
-    dateTime: new Date("2025-04-01T12:00:00"),
+    dateTime: new Date(2025, 4, 1, 12, 0).toISOString(),
     location: "Seattle",
     description: "Visit Starbucks",
   },
   {
     id: getRandomArbitrary(),
-    dateTime: new Date("2024-06-20T10:10:00"),
+    dateTime: new Date(2024, 5, 20, 18, 10).toISOString(),
     location: "London",
     description:
       "See Big Ben, drink some tea, eat some fish and chips, and Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
@@ -27,7 +28,7 @@ const DUMMY_APPOINTMENTS = [
   },
   {
     id: getRandomArbitrary(),
-    dateTime: new Date("2023-07-25T13:15:00"),
+    dateTime: new Date(2023, 7, 25, 13, 15).toISOString(),
     location: "Orlando",
     description:
       "Beach time Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

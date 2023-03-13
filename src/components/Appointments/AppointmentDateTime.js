@@ -1,10 +1,17 @@
 import "./AppointmentDateTime.css";
 
 const AppointmentDateTime = (props) => {
-  const month = props.dateTime.toLocaleString("en-US", { month: "short" });
-  const day = props.dateTime.toLocaleString("en-US", { day: "2-digit" });
-  const year = props.dateTime.getFullYear();
-  const time = props.dateTime.toLocaleTimeString("en-US", {
+  const tempDateTime = new Date(props.dateTime);
+  const month = tempDateTime.toLocaleString("en-US", {
+    month: "short",
+  });
+  const day = tempDateTime.toLocaleString("en-US", {
+    day: "numeric",
+  });
+  const year = tempDateTime.toLocaleString("en-US", {
+    year: "numeric",
+  });
+  const time = tempDateTime.toLocaleTimeString("en-US", {
     timeStyle: "short",
   });
   return (

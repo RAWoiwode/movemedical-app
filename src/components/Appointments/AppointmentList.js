@@ -6,7 +6,7 @@ const AppointmentList = (props) => {
   }
 
   // Sorting appointments from closest dateTime to farthest dateTime
-  props.items.sort((a, b) => a.dateTime - b.dateTime);
+  props.items.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
 
   return (
     <ul>

@@ -1,15 +1,18 @@
 import { useState } from "react";
 import "./AppointmentForm.css";
 
-// Testing this outside of component to see the functionality
+// Only want this to run once per component call
 let minDate = new Date().toISOString();
 minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the z
 
 const AppointmentEditForm = (props) => {
   const [enteredDateTime, setEnteredDateTime] = useState(() => {
-    let temp = new Date(props.appointmentData.dateTime).toISOString();
-    temp = temp.substring(0, temp.length - 8);
-    return temp;
+    let temp = new Date(props.appointmentData.dateTime);
+    let dateTimeDisplay = new Date(
+      temp.setHours(temp.getHours() - temp.getTimezoneOffset() / 60)
+    ).toISOString();
+    dateTimeDisplay = dateTimeDisplay.substring(0, dateTimeDisplay.length - 8);
+    return dateTimeDisplay;
   });
   const [selectedLocation, setSelectedLocation] = useState(
     props.appointmentData.location
@@ -34,7 +37,7 @@ const AppointmentEditForm = (props) => {
     event.preventDefault(); // Don't let form submit and reload page in a default way
 
     const appointmentData = {
-      dateTime: new Date(enteredDateTime.toString()),
+      dateTime: new Date(enteredDateTime).toISOString(),
       location: selectedLocation,
       description: enteredDescription,
       id: props.appointmentData.id,
