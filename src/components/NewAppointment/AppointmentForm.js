@@ -5,33 +5,59 @@ import "./AppointmentForm.css";
 let minDate = new Date().toISOString();
 minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the z
 
+/**
+ * Component to display form for adding a new appointment.
+ *
+ * @param {Object} props
+ * @returns Form for collecting data for new appointment
+ */
 const AppointmentForm = (props) => {
   const [enteredDateTime, setEnteredDateTime] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
 
+  /**
+   * Update the dateTime state.
+   *
+   * @param {Object} event
+   */
   const dateTimeChangeHandler = (event) => {
     setEnteredDateTime(() => event.target.value);
   };
 
+  /**
+   * Update the description state.
+   *
+   * @param {Object} event
+   */
   const descriptionChangeHandler = (event) => {
     setEnteredDescription(event.target.value);
   };
 
+  /**
+   * Update the location state.
+   *
+   * @param {Object} event
+   */
   const locationChangeHandler = (event) => {
     setSelectedLocation(event.target.value);
   };
 
+  /**
+   * Handle the form submission for a new appointment.
+   * Create a new appointment object to pass up to parent.
+   * Also clear the inputs.
+   *
+   * @param {Object} event
+   */
   const submitHandler = (event) => {
     event.preventDefault(); // Don't let form submit and reload page in a default way
-    console.log(enteredDateTime);
     const appointmentData = {
       dateTime: new Date(enteredDateTime),
       location: selectedLocation,
       description: enteredDescription,
     };
 
-    console.log(appointmentData);
     props.onSaveAppointmentData(appointmentData);
 
     // Clear inputs

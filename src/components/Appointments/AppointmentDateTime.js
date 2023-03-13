@@ -1,6 +1,13 @@
 import "./AppointmentDateTime.css";
 
+/**
+ * Component to display the date and time neatly.
+ *
+ * @param {Object} props
+ * @returns A card looking component containing the date and time
+ */
 const AppointmentDateTime = (props) => {
+  // Create a new Date object to get date info in Locale format
   const tempDateTime = new Date(props.dateTime);
   const month = tempDateTime.toLocaleString("en-US", {
     month: "short",
@@ -14,6 +21,7 @@ const AppointmentDateTime = (props) => {
   const time = tempDateTime.toLocaleTimeString("en-US", {
     timeStyle: "short",
   });
+
   return (
     <div className="appointment-date-time">
       <div className="appointment-date-time__date">

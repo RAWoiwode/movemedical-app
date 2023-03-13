@@ -1,6 +1,13 @@
 import Appointment from "./Appointment";
 
+/**
+ * Component to display the list of appointments.
+ *
+ * @param {Object} props
+ * @returns Sorted list of appointments
+ */
 const AppointmentList = (props) => {
+  // Check to see if there are appointments to display
   if (props.items.length === 0) {
     return <h2>No upcoming appointments</h2>;
   }

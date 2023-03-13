@@ -3,17 +3,35 @@ import "./Appointment.css";
 import AppointmentDateTime from "./AppointmentDateTime";
 import AppointmentEditForm from "../NewAppointment/AppointmentEditForm";
 
+/**
+ * Component to display appointment info.
+ * Also conditionally render edit form is user wants to edit an appointment.
+ *
+ * @param {Object} props
+ * @returns
+ */
 const Appointment = (props) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Change isEditing flag if edit button is clicked.
+   */
   const startEditingHandler = () => {
     setIsEditing(true);
   };
 
+  /**
+   * Change isEditing flag if cancel button is clicked.
+   */
   const cancelEditingHandler = () => {
     setIsEditing(false);
   };
 
+  /**
+   * Pass appointment data up to save. Change isEditing flag.
+   *
+   * @param {Object} appointmentData
+   */
   const saveAppointmentHandler = (appointmentData) => {
     setIsEditing(false);
     props.onSave(appointmentData);

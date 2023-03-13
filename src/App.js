@@ -4,19 +4,22 @@ import Appointments from "./components/Appointments/Appointments";
 import NewAppointment from "./components/NewAppointment/NewAppointment";
 import getRandomArbitrary from "./utility/Utility";
 
-// Date.UTC(year, monthIndex, day, hour, minute)
+/* 
+DUMMY data to display on initial page load
+Decided to convert dates to ISO String to help with inputting the date when editing
+*/
 const DUMMY_APPOINTMENTS = [
   {
     id: getRandomArbitrary(),
     dateTime: new Date(2023, 3, 14, 14, 30).toISOString(),
     location: "San Diego",
-    description: "an appointment",
+    description: "A test appointment",
   },
   {
     id: getRandomArbitrary(),
     dateTime: new Date(2025, 4, 1, 12, 0).toISOString(),
     location: "Seattle",
-    description: "Visit Starbucks",
+    description: "Visit Pike's Place Starbucks!",
   },
   {
     id: getRandomArbitrary(),
@@ -38,25 +41,41 @@ const DUMMY_APPOINTMENTS = [
 function App() {
   const [appointments, setAppointments] = useState(DUMMY_APPOINTMENTS);
 
+  /**
+   * Add a new appointment to the appointment list
+   *
+   * @param {Object} appointment
+   */
   const addAppointmentHandler = (appointment) => {
     setAppointments((prevAppointments) => {
       return [...prevAppointments, appointment];
     });
   };
 
+  /**
+   * Update an appointment that is currently in the appointments list
+   *
+   * @param {Object} appointment
+   */
   const saveAppointmentHandler = (appointment) => {
     setAppointments((prevAppointments) => {
       const index = prevAppointments.findIndex(
         (prevAppointment) => prevAppointment.id === appointment.id
       );
 
+      // findIndex returns -1 if the index is not found
       if (index !== -1) {
         prevAppointments[index] = appointment;
       }
+
       return [...prevAppointments];
     });
   };
 
+  /**
+   * Remove an appointment from the appointments list
+   * @param {String} id
+   */
   const deleteAppointmentHandler = (id) => {
     const newAppointments = appointments.filter(
       (appointment) => appointment.id !== id
@@ -66,7 +85,7 @@ function App() {
 
   return (
     <div>
-      <h1>Sample Scheduler App</h1>
+      <h1>Sample Appointment App</h1>
       <Appointments
         appointmentList={appointments}
         onDeleteAppointment={deleteAppointmentHandler}

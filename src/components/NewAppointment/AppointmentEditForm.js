@@ -3,11 +3,19 @@ import "./AppointmentForm.css";
 
 // Only want this to run once per component call
 let minDate = new Date().toISOString();
-minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the z
+minDate = minDate.substring(0, minDate.length - 8); // Remove seconds through the Z
 
+/**
+ * Component that handles the editing form for editing an appointment that is currently in the list.
+ *
+ * @param {Object} props
+ * @returns Form to edit appointment data
+ */
 const AppointmentEditForm = (props) => {
   const [enteredDateTime, setEnteredDateTime] = useState(() => {
     let temp = new Date(props.appointmentData.dateTime);
+    // Need to account for the Timezone offset or else the "wrong" time will be displayed in the input.
+    // I would like to implement this in a more global friendly way
     let dateTimeDisplay = new Date(
       temp.setHours(temp.getHours() - temp.getTimezoneOffset() / 60)
     ).toISOString();
@@ -21,18 +29,39 @@ const AppointmentEditForm = (props) => {
     props.appointmentData.description
   );
 
+  /**
+   * Update the dateTime state.
+   *
+   * @param {Object} event
+   */
   const dateTimeChangeHandler = (event) => {
     setEnteredDateTime(() => event.target.value);
   };
 
+  /**
+   * Update the description state.
+   *
+   * @param {Object} event
+   */
   const descriptionChangeHandler = (event) => {
     setEnteredDescription(event.target.value);
   };
 
+  /**
+   * Update the location state.
+   *
+   * @param {Object} event
+   */
   const locationChangeHandler = (event) => {
     setSelectedLocation(event.target.value);
   };
 
+  /**
+   * Handle the form submission.
+   * Create an appointment object to pass up to parent component.
+   *
+   * @param {Object} event
+   */
   const submitHandler = (event) => {
     event.preventDefault(); // Don't let form submit and reload page in a default way
 
@@ -43,7 +72,6 @@ const AppointmentEditForm = (props) => {
       id: props.appointmentData.id,
     };
 
-    console.log(appointmentData);
     props.onSaveAppointmentData(appointmentData);
   };
 
