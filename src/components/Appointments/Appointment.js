@@ -32,20 +32,27 @@ const Appointment = (props) => {
             <div className="appointment__details">
               <article>{props.description}</article>
             </div>
-            <button type="button" onClick={startEditingHandler}>
-              Edit
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                if (
-                  window.confirm("Are you sure you want to delete this item?")
-                )
-                  props.onDelete(props.id);
-              }}
-            >
-              Delete
-            </button>
+            <div className="appointment__buttons">
+              <button
+                className="appointment__edit"
+                type="button"
+                onClick={startEditingHandler}
+              >
+                Edit
+              </button>
+              <button
+                className="appointment__delete"
+                type="button"
+                onClick={() => {
+                  if (
+                    window.confirm("Are you sure you want to delete this item?")
+                  )
+                    props.onDelete(props.id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </li>
       )}

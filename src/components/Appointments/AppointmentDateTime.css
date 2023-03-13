@@ -1,17 +1,17 @@
 .appointment-date-time {
   align-items: center;
-  background-color: white;
+  background-color: #e0ecf5;
   border-radius: 13px;
   border: 1px solid #000000;
   display: flex;
   flex-direction: column;
-  height: 6.5rem;
+  height: 7.5rem;
   justify-content: center;
   width: 9.5rem;
 }
 
 .appointment-date-time hr {
-  border: 1px dashed red;
+  border: 1px solid #2a3d45;
   margin: 0.25rem auto;
   width: 7.5rem;
 }

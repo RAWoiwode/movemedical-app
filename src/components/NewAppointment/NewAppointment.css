@@ -1,11 +1,16 @@
 .new-appointment {
   align-items: center;
-  background-color: darkseagreen;
-  border-radius: 11px;
+  background-color: #6b9080;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   margin: 1rem auto;
   max-width: 95%;
   padding: 1rem;
   width: 50rem;
+}
+
+.new-appointment button:hover,
+.new-appointment button:active {
+  background-color: #b9dfdc;
 }

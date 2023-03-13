@@ -45,11 +45,9 @@ function App() {
 
   const saveAppointmentHandler = (appointment) => {
     setAppointments((prevAppointments) => {
-      console.log("in App.js ", appointment);
       const index = prevAppointments.findIndex(
         (prevAppointment) => prevAppointment.id === appointment.id
       );
-      console.log("Index - ", index);
 
       if (index !== -1) {
         prevAppointments[index] = appointment;
@@ -67,6 +65,7 @@ function App() {
 
   return (
     <div>
+      <h1>Sample Scheduler App</h1>
       <Appointments
         appointmentList={appointments}
         onDeleteAppointment={deleteAppointmentHandler}

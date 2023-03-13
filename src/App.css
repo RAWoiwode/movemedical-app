@@ -1,3 +1,31 @@
+h1 {
+  flex: 1;
+  margin: 1rem auto;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+button {
+  background-color: #edf7f6;
+  border-color: #6987c9;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.new-appointment__buttons button:hover,
+.new-appointment__buttons button:active {
+  background-color: #b9dfdc;
+}
+
+.new-appointment__buttons {
+  text-align: end;
+}
+
+/* DEFAULT  */
 .App {
   text-align: center;
 }

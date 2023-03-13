@@ -85,8 +85,12 @@ const AppointmentEditForm = (props) => {
           />
         </div>
       </div>
-      <div>
-        <button type="button" onClick={props.onCancel}>
+      <div className="new-appointment__buttons">
+        <button
+          className="new-appointment__cancel"
+          type="button"
+          onClick={props.onCancel}
+        >
           Cancel
         </button>
         <button type="submit">Save Appointment</button>

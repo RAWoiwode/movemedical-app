@@ -1,7 +1,7 @@
 import "./AppointmentDateTime.css";
 
 const AppointmentDateTime = (props) => {
-  const month = props.dateTime.toLocaleString("en-US", { month: "long" });
+  const month = props.dateTime.toLocaleString("en-US", { month: "short" });
   const day = props.dateTime.toLocaleString("en-US", { day: "2-digit" });
   const year = props.dateTime.getFullYear();
   const time = props.dateTime.toLocaleTimeString("en-US", {
