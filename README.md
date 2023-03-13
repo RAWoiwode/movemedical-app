@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Movemedical - Simple Appointment App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Quick React web app you get from running
 
-## Available Scripts
+```
+npx create-react-app movemedical-app
+```
 
-In the project directory, you can run:
+in the command line. Added `gh-pages` package to be able to create GitHub page.
 
-### `npm start`
+This README contains “Requirements”, “Assumptions”, and “Bugs”
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Requirements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The main task is the following:
 
-### `npm test`
+Create a basic React web app that allows the user to schedule appointments. No external libraries should be used. The scheduler should be able to do the following:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create appointments with a date, time, location, and description.
+  - (A) Location should be a dropdown/select with the following options: San Diego, Portland, Seattle, London, and Orlando.
+- See a list of my appointments
+- Edit my appointments
+- Cancel (delete) an appointment
+- The user interface should be simple yet elegant (i.e., has some quick, light styling)
+- Generate a Github page where this scheduler can be used, and submit the Github page link along with the link to the Github repo.
 
-### `npm run build`
+I acquired more requirements after asking some questions in an email and made everything into a list:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Derived List of Requirements**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Description
+  - Validations for a reasonable length
+- Date
+  - No past appointments can be added
+- Time
+  - Dropdown
+  - Adjustable to the minute
+- Location
+  - Dropdown
+  - ONLY - San Diego, Portland, Seattle, London, and Orlando
+  - Does NOT need state/country added on
+- Other
+  - See list of appointments
+  - Edit appointments
+  - All fields are editable
+  - Create appointments
+  - **All** fields are required
+  - Design for web only
+  - Volatile storage is OK (data resets on page reload)
+  - Cancel/Delete appointments
+  - Prompt on Delete action
+  - Quick light styling
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Assumptions
 
-### `npm run eject`
+I made the following assumptions creating this app:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- The list of appointments is sorted in order of soonest date
+- Limited description to 256 characters (average characters in 4-5 sentences)
+- All features available on one page
+- Display a message if there are no appointments
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Bugs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+There was a bug I could not get to during the time allotted.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The `datetime input` validation check uses the UTC time in ISO form. If you enter a datetime before the current datetime, the tooltip displays the correct date and time, it is just in UTC format so it appears like the time is a few hours ahead of the time that component was rendered.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I believe a solution to it would be to look into editing the validation check value some how. If that is not possible, then creating a tooltip about that input and doing a manual validation check and displaying that tooltip accordingly.
